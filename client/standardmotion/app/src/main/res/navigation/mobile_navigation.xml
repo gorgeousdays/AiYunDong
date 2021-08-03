@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_post_video">
+
+    <fragment
+        android:id="@+id/navigation_sport_news"
+        android:name="com.example.standardmotion.ui.sportnews.SportNewsFragment"
+        android:label="@string/title_sport_news"
+        tools:layout="@layout/fragment_sport_news" />
+
+    <fragment
+        android:id="@+id/navigation_start_sport"
+        android:name="com.example.standardmotion.ui.StartSport.StartSportFragment"
+        android:label="@string/title_start_sport"
+        tools:layout="@layout/fragment_start_sport" />
+
+    <fragment
+        android:id="@+id/navigation_post_video"
+        android:name="com.example.standardmotion.ui.postvideo.PostVideoFragment"
+        android:label="@string/title_post_video"
+        tools:layout="@layout/fragment_post_video" />
+    <fragment
+        android:id="@+id/navigation_my_message"
+        android:name="com.example.standardmotion.ui.mymessage.MyMessageFragment"
+        android:label="@string/title_my_message"
+        tools:layout="@layout/fragment_my_message" />
+</navigation>

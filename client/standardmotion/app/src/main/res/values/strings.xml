@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StandardMotion</string>
+    <string name="title_sport_news">运动资讯</string>
+    <string name="title_start_sport">开始运动</string>
+    <string name="title_post_video">上传视频</string>
+    <string name="title_my_message">我的</string>
+</resources>
