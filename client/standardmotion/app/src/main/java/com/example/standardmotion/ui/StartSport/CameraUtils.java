@@ -169,7 +169,7 @@ public class CameraUtils {
      * @param path 保存的路径
      * @param name 录像视频名称(不包含后缀)
      */
-    public void startRecord(String path, String name) {
+    public String startRecord(String path, String name) {
         camera.unlock();
         mediaRecorder.setCamera(camera);
         //声音
@@ -189,6 +189,7 @@ public class CameraUtils {
         }
         mediaRecorder.setOutputFile(path + File.separator + name + ".mp4");
         File file1 = new File(path + File.separator + name + ".mp4");
+        String filepath=path + File.separator + name + ".mp4";
         if (file1.exists()) {
             file1.delete();
         }
@@ -201,6 +202,7 @@ public class CameraUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return filepath;
     }
 
     /***
