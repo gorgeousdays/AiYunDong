@@ -35,6 +35,4 @@ public class HttpUtil {
         Request request  = new Request.Builder().url(url).post(new ProgressRequestBody(multipartBody,listener)).build();
         okHttpClient.newCall(request).enqueue(callback);
     }
-
-
 }
