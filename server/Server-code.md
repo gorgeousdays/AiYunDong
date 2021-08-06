@@ -99,6 +99,47 @@ def evaluate(standardList, nowList, times):#标准序列角度、当前序列角
     print(proposal)
 ```
 
+## SaveResult
+
+根据Evaluate上述计算得到的W,proposal,tiems三个量，计算相关量并保存到json文件夹中
+
+无返回值，只有对结果json文件的操作
+
+#### 函数
+
+```python
+def savereuslt(filename,times,proposal,W):
+    '''
+    读文件
+    '''
+    new_result.update(id=str(result_json_data["resultlist"][-1]["id"]+1),
+                      time=str(int(time.time())),
+                      num=str(times),
+                      advice=get_advice(proposal,times),
+                      energy=str(W))
+    '''
+    写文件
+    '''
+    
+def get_advice(proposal,times):
+```
+
+#### 调用案例
+
+```python
+from evaluate import evaluate,getTimes
+from getdata import get_alldata
+
+stanard_anglist=get_alldata("./jsonfile/standard/")#获取标准动作
+now_anglist,now_xy_list,W=get_alldata("./jsonfile/now/",isRunning=True)#获取当前动作信息
+times = getTimes(now_xy_list,0,"test")#计算运动个数 由于采用头部计数 传入0 头部的X即为各个List的第一个值
+proposal=evaluate(stanard_anglist,now_anglist,int(times))
+
+savereuslt("result.json",times,proposal,W)       
+```
+
+
+
 ## Draw
 
 获取单个json文件对其进行绘图，测试用代码，不属于主程序，后续可考虑绘图视频
@@ -108,3 +149,4 @@ draw_json(path)#根据对应json文件地址绘图
 ```
 
 观察绘图结果发现腾讯姿态检测api表现较差，对多目标易出错。
+
