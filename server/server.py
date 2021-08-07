@@ -2,14 +2,18 @@ from flask import Flask, render_template, jsonify, request
 import time
 import os
 import base64
+import json
 
 from getdata import get_alldata
 from evaluate import getTimes,evaluate
 from jsoncreator import video_to_json
+from saveresult import savereuslt
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'C:\\Users\\Hp\\Desktop\\sever-posedemo\\uploadfile'
+#UPLOAD_FOLDER = 'C:\\Users\\Hp\\Desktop\\sever-posedemo\\uploadfile'
+UPLOAD_FOLDER = './uploadfile'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['JSON_AS_ASCII'] = False #支持中文
 basedir = os.path.abspath(os.path.dirname(__file__))
 ALLOWED_EXTENSIONS = set(['txt', 'png', 'jpg', 'xls', 'JPG', 'PNG', 'xlsx', 'gif', 'GIF','mp4','avi'])
 
@@ -24,8 +28,8 @@ def judgeaction(new_filename):
     proposal=evaluate(stanard_anglist,now_anglist,int(times))
     print(proposal)
     print(times)
-    return proposal,times
-
+    print(W)
+    return proposal,times,w
 
 # 用于判断文件后缀
 def allowed_file(filename):
@@ -56,6 +60,7 @@ def api_upload():
         return jsonify({"errno": 1001, "errmsg": "上传失败"})
 
 
+#上传文件并且判断结果
 @app.route('/api/uploadandjudge', methods=['POST'], strict_slashes=False)
 def api_uploadandjudeg():
     file_dir = os.path.join(basedir, app.config['UPLOAD_FOLDER'])
@@ -72,12 +77,12 @@ def api_uploadandjudeg():
         print(new_filename)
 
         #添加动作代码
-        proposal,times=judgeaction(new_filename)
+        proposal,times,W=judgeaction(new_filename)
         #token = base64.b64encode(new_filename)
         #print(token)
-
+        savereuslt("./result/result.json",times,proposal,W)#保存结果至json文件
         #return jsonify({"errno": 0, "errmsg": "上传成功", "token": token})
-        return jsonify({"errno": 0, "errmsg": "上传成功","proposal":proposal,"times":times})
+        return jsonify({"errno": 0, "errmsg": "上传成功","proposal":proposal,"times":times,"W":W})
     else:
         return jsonify({"errno": 1001, "errmsg": "上传失败"})
 
@@ -86,6 +91,20 @@ def api_uploadandjudeg():
 def index():
     # 这里是demo，实际这么返回响应字符串是不规范的
     return '<h1>Hello World!</h1>'
+
+@app.route('/api/getresult/<json_name>',methods=['GET'])
+def api_getresult(json_name):
+    filename =  json_name + '.json'
+    directory = "./result"  #json文件所在的目录路径
+    try:
+        with open(directory + '/' + filename,'r',encoding='utf8') as f:
+            jsonStr = json.load(f)
+            print(jsonStr)
+            print("----------")
+            print(json.dumps(jsonStr))
+            return jsonify(jsonStr)
+    except Exception as e:
+        return jsonify({"message": "{}".format(e),"resultlist":"null"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
