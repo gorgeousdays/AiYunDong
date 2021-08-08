@@ -92,10 +92,10 @@ def index():
     # 这里是demo，实际这么返回响应字符串是不规范的
     return '<h1>Hello World!</h1>'
 
-@app.route('/api/getresult/<json_name>',methods=['GET'])
-def api_getresult(json_name):
+@app.route('/api/getmessage/<json_name>',methods=['GET'])
+def api_getmessage(json_name):
     filename =  json_name + '.json'
-    directory = "./result"  #json文件所在的目录路径
+    directory = "./message"  #json文件所在的目录路径
     try:
         with open(directory + '/' + filename,'r',encoding='utf8') as f:
             jsonStr = json.load(f)
