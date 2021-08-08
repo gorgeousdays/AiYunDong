@@ -116,6 +116,7 @@ public class StartSportFragment extends Fragment {
                         }
                     });
                     //
+                    Toast.makeText(getActivity(), "视频处理中，稍后可在我的界面看到结果", Toast.LENGTH_LONG).show();
                 }else{
                     Log.d("No","Video");
                     Toast.makeText(getActivity(),"请先拍摄视频",Toast.LENGTH_SHORT).show();

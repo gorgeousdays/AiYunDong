@@ -72,7 +72,8 @@ public class MyMessageFragment extends Fragment {
     }
 
     private void requestResult() {
-        String address = "http://192.168.43.177:5000/api/getresult/result";
+        String address = "http://192.168.43.177:5000/api/getmessage/result";
+        Log.d("ADDRESS",address);
         HttpUtil.sendOkHttpRequest(address, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

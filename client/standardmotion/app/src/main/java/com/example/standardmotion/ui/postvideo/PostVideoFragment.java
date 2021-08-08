@@ -110,8 +110,8 @@ public class PostVideoFragment extends Fragment{
 //                    if(file==null){
 //                        Log.d("file","null");
 //                    }
-                    String postUrl = "http://192.168.43.177:5000/api/uploadandjudge";
-                    Toast.makeText(getActivity(), "test", Toast.LENGTH_LONG).show();
+                    String postUrl = "http://192.168.43.177:5000/api/upload";
+                    //Toast.makeText(getActivity(), "test", Toast.LENGTH_LONG).show();
 
                     HttpUtil.postFile(postUrl, new ProgressListener() {
                         @Override
@@ -132,10 +132,11 @@ public class PostVideoFragment extends Fragment{
                             if (response != null) {
                                 String result = response.body().string();
                                 Log.i(TAG, "result===" + result);
+
                             }
                         }
                     }, file);
-
+                    Toast.makeText(getActivity(), "视频处理中，稍后可在我的界面看到结果", Toast.LENGTH_LONG).show();
                 }
 
             }

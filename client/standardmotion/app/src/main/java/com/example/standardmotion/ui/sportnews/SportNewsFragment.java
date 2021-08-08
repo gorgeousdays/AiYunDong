@@ -95,7 +95,7 @@ public class SportNewsFragment extends Fragment {
     }
     public void requestNew(){
         // 根据返回到的 URL 链接进行申请和返回数据
-        String address = "http://api.tianapi.com/tiyu/index?key=89a8b54eeac0af47cfeb535abe840a7f&num=10";
+        String address = "http://192.168.43.177:5000/api/getmessage/news";
         HttpUtil.sendOkHttpRequest(address, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
