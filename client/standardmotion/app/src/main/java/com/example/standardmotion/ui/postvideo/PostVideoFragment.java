@@ -110,7 +110,7 @@ public class PostVideoFragment extends Fragment{
 //                    if(file==null){
 //                        Log.d("file","null");
 //                    }
-                    String postUrl = "http://192.168.43.177:5000/api/upload";
+                    String postUrl = "http://192.168.43.177:5000/api/uploadandjudge";
                     //Toast.makeText(getActivity(), "test", Toast.LENGTH_LONG).show();
 
                     HttpUtil.postFile(postUrl, new ProgressListener() {
