@@ -5,14 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="?attr/actionBarSize"
-    tools:context=".ui.sportnews.SportNewsFragment">
+    tools:context=".ui.sportnews.SportNewsFragment"
+    android:orientation="vertical">
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/horizontalScrollView"
+        android:fadingEdge="horizontal"
+        android:layout_gravity="center_horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="@+id/swipe_layout">
+        <TextView
+            android:id="@+id/chinning"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:text="引体向上"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/swimming"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:text="游泳"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/solidball"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:text="实心球"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/petest"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:text="中考体育"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/running"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:text="跑步"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/jumping"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:text="跳绳"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </HorizontalScrollView>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_layout"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
 
     <ListView
         android:id="@+id/list_view"

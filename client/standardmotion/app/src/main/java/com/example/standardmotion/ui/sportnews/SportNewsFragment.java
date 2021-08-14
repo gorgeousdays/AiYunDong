@@ -88,14 +88,60 @@ public class SportNewsFragment extends Fragment {
             @Override
             public void onRefresh() {
                 refreshLayout.setRefreshing(true);
-                requestNew();
+                requestNew("http://api.drinkmilker.com/api/getmessage/news");
             }
         });
-        requestNew();
+        requestNew("http://api.drinkmilker.com/api/getmessage/news");
+
+
+
+        //设置滑动栏项目
+        TextView chinning=(TextView) getActivity().findViewById(R.id.chinning);
+        TextView swimming=(TextView)getActivity().findViewById(R.id.swimming);
+        TextView solidball=(TextView)getActivity().findViewById(R.id.solidball);
+        TextView petest=(TextView)getActivity().findViewById(R.id.petest);
+        TextView running=(TextView)getActivity().findViewById(R.id.running);
+        TextView jumping=(TextView)getActivity().findViewById(R.id.jumping);
+
+        chinning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestNew("http://api.drinkmilker.com/api/getmessage/chinning");
+            }
+        });
+        swimming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestNew("http://api.drinkmilker.com/api/getmessage/swimming");
+            }
+        });
+        solidball.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestNew("http://api.drinkmilker.com/api/getmessage/solidball");
+            }
+        });
+        petest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestNew("http://api.drinkmilker.com/api/getmessage/petest");
+            }
+        });
+        running.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestNew("http://api.drinkmilker.com/api/getmessage/running");
+            }
+        });
+        jumping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestNew("http://api.drinkmilker.com/api/getmessage/jumping");
+            }
+        });
     }
-    public void requestNew(){
+    public void requestNew(String address){
         // 根据返回到的 URL 链接进行申请和返回数据
-        String address = "http://192.168.43.177:5000/api/getmessage/news";
         HttpUtil.sendOkHttpRequest(address, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
