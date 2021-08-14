@@ -1,0 +1,97 @@
+{
+    "code": 200,
+    "msg": "success",
+    "newslist": [
+      {
+        "id": "1",
+        "ctime": "2021-08-08 15:00",
+        "title": "新手必看五大游泳入门教程",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://pic.lswim.com/2018/05/youyongsudu-640x330.jpg",
+        "url": "https://lswim.com/365.html"
+      },
+      {
+        "id": "2",
+        "ctime": "2021-08-08 15:00",
+        "title": "怎么一天学会游泳，游泳教程",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://exp-picture.cdn.bcebos.com/ad121888912ca5ca75f3c7fb8bfc77f7990e94b2.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fquality%2Cq_80",
+        "url": "https://jingyan.baidu.com/article/2f9b480db572e641cb6cc2fd.html"
+      },
+      {
+        "id": "3",
+        "ctime": "2021-08-08 15:00",
+        "title": "中考体育游泳攻略及训练技巧",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181010%2Ff68e4c7d2da9499d82183f098a02e02c.jpg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631547202&t=2f70428281ac22fe9ba34ceed739ee2e",
+        "url": "http://cc.xdf.cn/zhongxue/zhongkao/201901/218496666.html"
+      },
+      {
+        "id": "4",
+        "ctime": "2021-08-08 15:00",
+        "title": "2021年中考体育满分训练方法:(游泳)",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://img0.baidu.com/it/u=2957404140,4200705988&fm=26&fmt=auto&gp=0.jpg",
+        "url": "http://www.zhongkao.com/e/20201010/5f811b54b558c_3.shtml"
+      },
+      {
+        "id": "5",
+        "ctime": "2021-08-08 15:00",
+        "title": "新手学习游泳教程",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://exp-picture.cdn.bcebos.com/edafb3bcbe2f47704dba4d6e6f3b3b860321793a.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fquality%2Cq_80",
+        "url": "https://jingyan.baidu.com/article/39810a23b3892db636fda6bf.html"
+      },
+      {
+        "id": "6",
+        "ctime": "2021-08-08 15:00",
+        "title": "教你体育中考拿满分之游泳篇 ",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://www.xmswim.com/data/attachment/portal/201609/04/221748xorzwgtwtrmhhtoo.jpg",
+        "url": "https://www.xmswim.com/article-1450-1.html"
+      },
+      {
+        "id": "7",
+        "ctime": "2021-08-08 15:00",
+        "title": "不会游泳的看过来！一套极简游泳教程教你游泳，帮你锻炼全身肌肉 ",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://pics0.baidu.com/feed/9a504fc2d5628535a4fb156ed61378c1a6ef636d.jpeg?token=f08337f727526874954dadce5bc0512d",
+        "url": "https://baijiahao.baidu.com/s?id=1673796504280403761&wfr=spider&for=pc"
+      },
+      {
+        "id": "8",
+        "ctime": "2021-08-08 15:00",
+        "title": "几乎所有游泳教程都没有提到的换气技巧，功夫在诗外 ",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://t11.baidu.com/it/u=3535309540,810218108&fm=173&app=25&f=JPEG?w=640&h=480&s=9786B4444A01254DA8983119030010C2",
+        "url": "https://baijiahao.baidu.com/s?id=1609252299484463655&wfr=spider&for=pc"
+      },
+      {
+        "id": "9",
+        "ctime": "2021-08-08 15:00",
+        "title": "游泳入门《跟我学游泳》（全5集） ",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://exp-picture.cdn.bcebos.com/125ed0ecd3d969759eb4cd2cd243040149fe09c5.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fquality%2Cq_80",
+        "url": "http://xidongv.com/lecture/7672"
+      },
+      {
+        "id": "10",
+        "ctime": "2021-08-08 15:00",
+        "title": "如何学会游泳(自学)？ ",
+        "description": "",
+        "source": "游泳",
+        "picUrl": "https://exp-picture.cdn.bcebos.com/a99a494afa32939c4c87fe075719ce2c5a1b15c5.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fquality%2Cq_80",
+        "url": "https://jingyan.baidu.com/article/3aed632e32caf37011809174.html"
+      }
+    ]
+  }
+  

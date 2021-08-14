@@ -1,0 +1,61 @@
+{
+    "code": 200,
+    "msg": "success",
+    "newslist": [
+      {
+        "id": "1",
+        "ctime": "2021-08-08 16:00",
+        "title": "中考跳绳教学教程",
+        "description": "",
+        "source": "跳绳",
+        "picUrl": "https://img1.baidu.com/it/u=1160523221,3410945532&fm=26&fmt=auto&gp=0.jpg",
+        "url": "https://jingyan.baidu.com/article/19020a0ac0c225139c284225.html"
+      },
+      {
+        "id": "2",
+        "ctime": "2021-08-08 15:00",
+        "title": "中考跳绳训练小技巧~ ",
+        "description": "",
+        "source": "跳绳",
+        "picUrl": "http://5b0988e595225.cdn.sohucs.com/images/20180328/ad163f469d6a4b5eb7cf20148e6f1c13.jpeg",
+        "url": "https://www.sohu.com/a/226591145_499999"
+      },
+      {
+        "id": "3",
+        "ctime": "2021-08-08 16:00",
+        "title": "中考体育跳绳高分技巧",
+        "description": "",
+        "source": "跳绳",
+        "picUrl": "https://img1.baidu.com/it/u=267645761,1519025408&fm=26&fmt=auto&gp=0.jpg",
+        "url": "http://www.zhongkao.com/e/20181119/5bf25b1951974.shtml"
+      },
+      {
+        "id": "4",
+        "ctime": "2021-08-08 15:00",
+        "title": "教学篇 | 教你如何正确跳绳（第一课） ",
+        "description": "",
+        "source": "跳绳",
+        "picUrl": "https://img1.baidu.com/it/u=3877711246,850633906&fm=26&fmt=auto&gp=0.jpg",
+        "url": "https://www.sohu.com/a/134018978_503602"
+      },
+      {
+        "id": "5",
+        "ctime": "2021-08-08 16:00",
+        "title": "普通单人跳绳教程 教你如何掌握跳绳技巧",
+        "description": "",
+        "source": "跳绳",
+        "picUrl": "https://img0.baidu.com/it/u=1437052385,2794098460&fm=26&fmt=auto&gp=0.jpg",
+        "url": "https://m.yxlady.com/jingyan/823580.shtml"
+      },
+      {
+        "id": "6",
+        "ctime": "2021-08-08 15:00",
+        "title": "跳绳教程：跳绳时小跳怎么办？",
+        "description": "",
+        "source": "跳绳",
+        "picUrl": "https://pic1.zhimg.com/v2-4643c8824d505daa9ef8bc8b7a0cbc18_1440w.jpg?source=172ae18b",
+        "url": "https://zhuanlan.zhihu.com/p/161399424?ivk_sa=1024320u"
+      }
+    ]
+  }
+  
