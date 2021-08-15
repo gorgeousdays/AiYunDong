@@ -18,16 +18,17 @@ def get_advice(proposal,times):
     elif max(standard_proposal[4:8])>1.5:
         print("基本标准,腿伸直一点更好")
 
-def savereuslt(filename,times,proposal,W):
+def savereuslt(filename,times,proposal,W,new_filename):
     with open(filename,'r',encoding='utf8')as fp:
         result_json_data = json.load(fp)
         #print(result_json_data)
     new_result={}
-    new_result.update(id=str(result_json_data["resultlist"][-1]["id"]+1),
-                      time=str(int(time.time())),
+    new_result.update(id=str(123),
+                      time=str(time.asctime(time.localtime(time.time()) )),
                       num=str(times),
                       advice=get_advice(proposal,times),
-                      energy=str(W))
+                      energy=str(W),
+                      img=str(new_filename))
 
     result_json_data["resultlist"].append(new_result)
 

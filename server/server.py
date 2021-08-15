@@ -1,13 +1,15 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request,Response
 import time
 import os
 import base64
 import json
+import cv2
 
 from getdata import get_alldata
-from evaluate import getTimes,evaluate
+from evaluate import getTimes,evaluate,fastDtw,alignedList
 from jsoncreator import video_to_json
 from saveresult import savereuslt
+from savepicturefromvideo import cul_max_distance,find_max_distance_index,savePictureFromVideo
 
 app = Flask(__name__)
 #UPLOAD_FOLDER = 'C:\\Users\\Hp\\Desktop\\sever-posedemo\\uploadfile'
@@ -18,7 +20,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 ALLOWED_EXTENSIONS = set(['txt', 'png', 'jpg', 'xls', 'JPG', 'PNG', 'xlsx', 'gif', 'GIF','mp4','avi'])
 
 
-def judgeaction(new_filename):
+def judgeaction(new_filename,savePic):
     file_dir = os.path.join(basedir, app.config['UPLOAD_FOLDER'])
     video_to_json(os.path.join(file_dir, new_filename),"noimage","./jsonfile/now/",2)
 
@@ -29,7 +31,16 @@ def judgeaction(new_filename):
     print(proposal)
     print(times)
     print(W)
-    return proposal,times,w
+    if(savePic==True):
+        path = fastDtw(now_anglist, stanard_anglist) #当前序列在前，标准序列在后
+        runningNowList, runningStandardList = alignedList(now_anglist, stanard_anglist, path)
+        #接下来求runningNowList中与runningStandardList差距最大的一帧，记录并匹配返回
+        max_i,_,__=cul_max_distance(runningNowList,runningStandardList)#获取runningNowList中最大差距帧
+
+        pic_index,_=find_max_distance_index(now_anglist,runningNowList,max_i)#获取now_anglist最大差距帧，即与runningNowList最接近的一帧
+        savePictureFromVideo('uploadfile/'+new_filename,'imgfile/',new_filename,pic_index,False)#保存该帧
+
+    return proposal,times,W
 
 # 用于判断文件后缀
 def allowed_file(filename):
@@ -62,7 +73,7 @@ def api_upload():
 
 #上传文件并且判断结果
 @app.route('/api/uploadandjudge', methods=['POST'], strict_slashes=False)
-def api_uploadandjudeg():
+def api_uploadandjudge():
     file_dir = os.path.join(basedir, app.config['UPLOAD_FOLDER'])
     if not os.path.exists(file_dir):
         os.makedirs(file_dir)
@@ -77,10 +88,10 @@ def api_uploadandjudeg():
         print(new_filename)
 
         #添加动作代码
-        proposal,times,W=judgeaction(new_filename)
+        proposal,times,W=judgeaction(new_filename,True)
         #token = base64.b64encode(new_filename)
         #print(token)
-        savereuslt("./result/result.json",times,proposal,W)#保存结果至json文件
+        savereuslt("./message/result.json",times,proposal,W,new_filename)#保存结果至json文件
         #return jsonify({"errno": 0, "errmsg": "上传成功", "token": token})
         return jsonify({"errno": 0, "errmsg": "上传成功","proposal":proposal,"times":times,"W":W})
     else:
@@ -105,6 +116,11 @@ def api_getmessage(json_name):
             return jsonify(jsonStr)
     except Exception as e:
         return jsonify({"message": "{}".format(e),"resultlist":"null"})
+
+@app.route("/image/<image_name>",methods=['GET'])
+def get_image(image_name):
+    resp = Response(open("imgfile/"+image_name, 'rb'), mimetype="image/jpeg")
+    return resp
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
