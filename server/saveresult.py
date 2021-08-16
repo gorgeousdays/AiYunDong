@@ -24,7 +24,7 @@ def savereuslt(filename,times,proposal,W,new_filename):
         #print(result_json_data)
     new_result={}
     new_result.update(id=str(123),
-                      time=str(time.asctime(time.localtime(time.time()) )),
+                      time=str(time.strftime("%Y--%m--%d %H:%M:%S", time.localtime(int(time.time())))),
                       num=str(times),
                       advice=get_advice(proposal,times),
                       energy=str(W),
