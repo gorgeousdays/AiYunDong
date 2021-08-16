@@ -51,5 +51,14 @@ public class MainActivity extends AppCompatActivity {
             Log.i("MainActivity","这个说明系统版本在6.0之下，不需要动态获取权限。");
         }
     }
+//    private FragmentManager fmanager;
+//    private FragmentTransaction ftransaction;
+//    public void gotoresultFragment() {
+//        fmanager = getSupportFragmentManager();
+//        ftransaction = fmanager.beginTransaction();
+//        MyMessageFragmentResult myMessageFragmentResult = new MyMessageFragmentResult();
+//        ftransaction.replace(R.id.nav_host_fragment, myMessageFragmentResult);
+//        ftransaction.commit();
+//    }
 
 }

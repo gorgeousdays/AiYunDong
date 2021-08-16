@@ -1,13 +1,13 @@
-package com.example.standardmotion.ui.mymessage;
+package com.example.standardmotion.ui.mymessage.result;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MyMessageViewModel extends ViewModel {
+public class MyMessageViewModelResult extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public MyMessageViewModel() {
+    public MyMessageViewModelResult() {
         mText = new MutableLiveData<>();
         mText.setValue("This is my message fragment");
     }
