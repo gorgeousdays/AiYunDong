@@ -4,21 +4,37 @@
     android:orientation="vertical" >
 
 
-        <TextView
+    <TextView
+            android:id="@+id/jumptorecent"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:text="视频名称："
+            android:text="最近运动"
+            android:clickable="true"
             android:textColor="#000000"
             android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/jumptoresultlist"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textColor="#000000"
+        android:clickable="true"
+        android:textSize="18dp"
         android:gravity="center"
-        android:text="0" />
+        android:text="历史数据" />
+    <TextView
+        android:id="@+id/jumptoscore"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:text="运动积分"
+        android:clickable="true"
+        android:textColor="#000000"
+        android:textSize="18dp"/>
+
 
 </LinearLayout>

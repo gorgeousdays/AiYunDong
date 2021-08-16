@@ -5,10 +5,6 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_start">
     <fragment
-        android:name="com.example.standardmotion.ui.mymessage.result.MyMessageFragmentResult"
-        android:id="@+id/fragment_my_message_result_id"
-        tools:layout="@layout/fragment_my_message_result"/>
-    <fragment
         android:name="com.example.standardmotion.ui.Start.StartFragment"
         android:id="@+id/navigation_start"
         tools:layout="@layout/fragment_start"/>
