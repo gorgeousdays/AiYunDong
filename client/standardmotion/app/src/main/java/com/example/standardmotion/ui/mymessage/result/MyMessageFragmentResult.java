@@ -1,10 +1,13 @@
 package com.example.standardmotion.ui.mymessage.result;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,6 +20,7 @@ import com.example.standardmotion.R;
 import com.example.standardmotion.ui.mymessage.gson.ResultList;
 import com.example.standardmotion.ui.mymessage.util.HttpUtil;
 import com.example.standardmotion.ui.mymessage.util.Utility;
+import com.example.standardmotion.ui.sportnews.Title;
 
 
 import java.io.IOException;
@@ -67,6 +71,25 @@ public class MyMessageFragmentResult extends Fragment {
             }
         });
         requestResult();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            Intent intent = new Intent(getActivity(), ResultContentActivity.class);
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                if(view==null){
+//                    Log.d("NULL","VIEW");
+//                }else{
+//                    Log.d("NOT NULL","VIEW");
+//                }
+                Result result = resultList.get(position);
+                intent.putExtra("id",result.getId());
+                intent.putExtra("advice",result.getAdvice());
+                intent.putExtra("time",result.getTime());
+                intent.putExtra("score",result.getEnergy());
+                intent.putExtra("imgurl",result.getImgurl());
+                intent.putExtra("num",result.getNum());
+                startActivity(intent);
+            }
+        });
     }
 
     private void requestResult() {

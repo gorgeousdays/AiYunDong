@@ -1,12 +1,19 @@
 package com.example.standardmotion.ui.mymessage.result;
 
-public class Result {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+//implements Serializable
+//implements Parcelable 尝试用接口 出Bug
+public class Result  {
     private String id;
     private String time;
     private String num;
     private String advice;
     private String energy;
-    private String imgurl;
+    private String img;
 
     public String getId() {
         return id;
@@ -23,5 +30,5 @@ public class Result {
     public String getEnergy(){
         return  energy;
     }
-    public  String getImgurl(){return  imgurl;}
+    public String getImgurl(){return  img;}
 }

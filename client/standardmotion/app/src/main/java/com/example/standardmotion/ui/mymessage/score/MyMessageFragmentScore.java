@@ -55,7 +55,7 @@ public class MyMessageFragmentScore extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Score=(TextView)getActivity().findViewById(R.id.score);
         try {
-            TimeUnit.MILLISECONDS.sleep(300);//线程问题 休眠100ms 不然ScoreNum会是0
+            TimeUnit.MILLISECONDS.sleep(1000);//线程问题 休眠100ms 不然ScoreNum会是0
         }
         catch (InterruptedException ex){
             Log.d("Error","error");

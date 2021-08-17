@@ -93,8 +93,6 @@ public class SportNewsFragment extends Fragment {
         });
         requestNew("http://api.drinkmilker.com/api/getmessage/news");
 
-
-
         //设置滑动栏项目
         TextView chinning=(TextView) getActivity().findViewById(R.id.chinning);
         TextView swimming=(TextView)getActivity().findViewById(R.id.swimming);
