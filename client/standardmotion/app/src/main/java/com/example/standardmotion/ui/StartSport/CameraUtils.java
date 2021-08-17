@@ -240,9 +240,10 @@ public class CameraUtils {
     }
 
 
-    public void takePicture(String photoPath, String photoName) {
+    public String takePicture(String photoPath, String photoName) {
 
         camera.takePicture(null, null, new PictureCallBack(photoPath, photoName));
+        return photoPath+'/'+photoName;
     }
 
     /**

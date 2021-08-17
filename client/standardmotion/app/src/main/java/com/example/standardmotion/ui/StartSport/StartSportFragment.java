@@ -1,5 +1,14 @@
 package com.example.standardmotion.ui.StartSport;
 
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -14,16 +23,20 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.standardmotion.BuildConfig;
 import com.example.standardmotion.R;
 import com.example.standardmotion.ui.postvideo.PostVideoFragment;
 import com.example.standardmotion.ui.postvideo.ProgressRequestBody;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -47,7 +60,10 @@ public class StartSportFragment extends Fragment {
     private ImageView btn;
     private ImageView camera;
     private ImageView change;
+
+    private String picfilename;
     int x = 0;
+
 
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(10000, TimeUnit.MILLISECONDS)
             .readTimeout(10000,TimeUnit.MILLISECONDS)
@@ -69,6 +85,49 @@ public class StartSportFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.d(TAG, "onCreate: ");
+
+
+        Button sharevideo=(Button)getActivity().findViewById(R.id.share_video);
+        sharevideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//  Android版本太高 如下操作报错
+//                Intent intent =new Intent();
+//                ComponentName comp =new ComponentName("com.tencent.mm", "com.tencent.mm.ui.tools.ShareToTimeLineUI");
+//                intent.setComponent(comp);
+//                intent.setAction(Intent.ACTION_SEND_MULTIPLE);
+//                intent.setType("image/*");
+//                intent.putExtra("Kdescription", "hello world");//这里title 为朋友圈的文字描述
+//                ArrayList<Uri> imageUris = new ArrayList();
+//
+//                ArrayList<File> files=new ArrayList<>();//这里file 类型需要是图片格式,因为发送朋友圈的是图片
+//
+//                files.add(new File(videofullpath));
+//
+////files.add(new File(Environment.getExternalStorageDirectory()+File.separator+"abc1201.jpg"));
+//                for(File f : files) {
+//                    imageUris.add(Uri.fromFile(f));
+//                }
+//                intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
+//                startActivity(intent);//直接打开朋友圈页面发送朋友圈
+                  if(picfilename==null){
+                      Toast.makeText(getActivity(),"请先拍摄照片",Toast.LENGTH_SHORT).show();
+                  }else{
+                      Log.d("pic",picfilename);
+                      PlatformUtil.shareWechatMoment(getContext(),picfilename);
+                  }
+
+//                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+//                ComponentName comp =new ComponentName("com.tencent.mm", "com.tencent.mm.ui.tools.ShareToTimeLineUI");
+//                intent.setComponent(comp);
+//                intent.setType("*/*");
+//                Log.d("path",videofullpath);
+//                intent.putExtra("Kdescription", "hello world");
+//                intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".fileprovider", new File(videofullpath)));
+//                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//                startActivity(intent);
+            }
+        });
 
 
         btn = (ImageView) getActivity().findViewById(R.id.take_video);
@@ -133,6 +192,7 @@ public class StartSportFragment extends Fragment {
                     String timeStamp = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()));
                     name=timeStamp;
                     videofullpath=cameraUtils.startRecord(path, name);
+                    Log.d("video",videofullpath);
                     x = 1;
                 } else if (x == 1) {
                     cameraUtils.stopRecord();
@@ -147,7 +207,7 @@ public class StartSportFragment extends Fragment {
             public void onClick(View view) {
                 String timeStamp = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()));
                 String picname=timeStamp+".png";
-                cameraUtils.takePicture(path, picname);
+                picfilename=cameraUtils.takePicture(path, picname);
             }
         });
 

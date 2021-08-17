@@ -2,6 +2,7 @@ package com.example.standardmotion.ui.mymessage.result;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -62,5 +63,15 @@ public class ResultContentActivity extends AppCompatActivity {
 
         Glide.with(this).load(imageUrl).into(sport_now_pic);
         sport_now_pic_text.setText("运动图片");
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                break;
+            default:
+        }
+        return true;
     }
 }

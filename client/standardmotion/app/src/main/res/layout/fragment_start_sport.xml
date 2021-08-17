@@ -11,6 +11,12 @@
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
         android:text="上传视频"/>
+    <Button
+        android:id="@+id/share_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/video_upload_while_taking"
+        android:text="分享照片" />
     <SurfaceView
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
