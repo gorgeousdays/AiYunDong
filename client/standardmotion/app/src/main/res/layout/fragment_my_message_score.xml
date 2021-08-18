@@ -1,11 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="我的积分"
+        android:textSize="30dp" />
 <TextView
     android:id="@+id/score"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="hello world !"/>
+    android:text="hello world !"
+    android:layout_gravity="center_vertical"
+    android:textSize="30dp"
+    android:gravity="center"
+    android:layout_marginTop="50dp"
+    android:background="@drawable/bg_circle_blue"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
